@@ -1,13 +1,18 @@
 <script>
 export default {
-name: 'AppHeader'
+name: 'AppHeader',
+data() {
+    return{
+        
+    }
+}
 
 };
 </script>
 <template>
-<header>
+<header class="container d-flex justify-content-between">
     <p>Avada & Associates legal team announce deal to open up oil & gas</p>
-    <ul>
+    <ul class="d-flex justify-content-around">
         <li>
             <a href=""><i class="fa-brands fa-square-facebook"></i></a>
         </li>
@@ -27,13 +32,9 @@ name: 'AppHeader'
 </template>
 
 <style scoped>
- header{
-    display: flex;
+li{
+    list-style-type: none;
+}
 
- };
-
- ul{
-    display: flex;
- }
 
 </style>
