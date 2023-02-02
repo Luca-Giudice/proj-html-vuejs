@@ -10,7 +10,7 @@ data() {
 };
 </script>
 <template>
-<header class="container d-flex justify-content-between">
+<header class="container d-flex justify-content-between align-items-center">
     <p>Avada & Associates legal team announce deal to open up oil & gas</p>
     <ul class="d-flex justify-content-around">
         <li>
@@ -34,7 +34,11 @@ data() {
 <style scoped>
 li{
     list-style-type: none;
+    padding: 7px;
 }
 
-
+i{
+    font-size: 18px;
+    color: #F17105;
+}
 </style>
