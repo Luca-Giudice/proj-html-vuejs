@@ -3,7 +3,52 @@ export default {
     name: 'AppMain',
     data(){
         return{
+            questions: [{
 
+                    wwwwww: "WHO WE ARE",
+                    presentation: "Lorem ipsum,Fuga accusantium rerum ducimus harum autem saepe repudiandae deleniti soluta"
+                },
+                {
+
+                    wwwwww: "WHAT WE DO",
+                    presentation: "Lorem ipsum,Fuga accusantium rerum ducimus harum autem saepe repudiandae deleniti soluta"
+                },
+                {
+
+                    wwwwww: "WHERE WE WORK",
+                    presentation: "Lorem ipsum,Fuga accusantium rerum ducimus harum autem saepe repudiandae deleniti soluta"
+                },
+                
+            
+
+            ],
+            peoples:[
+                {
+                    name: "Deborah Brown",
+                    src: "../assets/img/column1-image1.jpg"
+                },
+                {
+                    name: "Allen Lucas",
+                    src: "../assets/img/column1-image2.jpg"
+                },
+                {
+                    name: "Muriel Potter",
+                    src: "../assets/img/column1-image3.jpg"
+                },
+                {
+                    name: "Ken Douglas",
+                    src: "../assets/img/column1-image4.jpg"
+                },
+                {
+                    name: "Loreta Harris",
+                    src: "../assets/img/column1-image5.jpg"
+                },
+                {
+                    name: "Phil Russell",
+                    src: "../assets/img/column1-image6.jpg"
+                },
+            ]
+            
         }
     }
 }
@@ -13,25 +58,15 @@ export default {
     <section class="jambotron">
     </section>
     <section  id="introduction">
-        <div class="container text-center p-5">
+        <div class="container text-center p-5 card-container">
 
             <div class="row d-flex">
-                <div class="col">
-                    <h4>WHO WE ARE</h4>
-                    <P>Lorem ipsum,Fuga accusantium rerum ducimus harum autem saepe repudiandae deleniti soluta</P>
+                <div v-for="question in questions" :key="question.wwwwww" class="col question-card">
+                    <h4>{{question.wwwwww}}</h4>
+                    <P>{{ question.presentation }}</P>
                     <button>LEARN MORE</button>
             </div>
-            <div class="col">
-                <h4>WHAT WE DO</h4>
-                <P>Lorem ipsum,Fuga accusantium rerum ducimus harum autem saepe repudiandae deleniti soluta</P>
-                <button>LEARN MORE</button>
-            </div>
-            <div class="col">
-                <h4>WHERE WE WORK</h4>
-                <P>Lorem ipsum,Fuga accusantium rerum ducimus harum autem saepe repudiandae deleniti soluta</P>
-                <button>LEARN MORE</button>
-                
-            </div>
+           
             
             
         </div>
@@ -39,7 +74,7 @@ export default {
 
     </section>
     <section class="container text-center">
-        <div class="row d-flex">
+        <div class="row d-flex pt-3 pb-5">
             <div class="col">
                 <i class="fa-solid fa-check"></i>
                 <h5>A GLOBAL VIEW</h5>
@@ -78,11 +113,11 @@ export default {
             <div class="container pb-5">
                 <div class="row mt-5">
                     <div class="col">
-                        <h3>OUR PEOPLE</h3>
-                        <ul>
+                        <h3 class="pb-3">OUR PEOPLE</h3>
+                        <ul  key="people.name">
                             <li class="d-flex align-items-center we">
                                 <img src="../assets/img/column1-image1.jpg" alt="#">
-                                <h4>Deborah Brown</h4>
+                                <h4>Debora Brown</h4>
 
                             </li>
                             <li class="d-flex align-items-center">
@@ -114,7 +149,7 @@ export default {
 
                     </div>
                     <div class="col">
-                        <h3>OUR PRACTICE AREAS</h3>
+                        <h3 class="pb-3">OUR PRACTICE AREAS</h3>
                         <ul>
                             <li class="d-flex align-items-center we">
                                 <img src="../assets/img/column2-image1.jpg" alt="#">
@@ -150,7 +185,7 @@ export default {
 
                     </div>
                     <div class="col">
-                        <h3>OUR PUBLICATIONS</h3>
+                        <h3 class="pb-3">OUR PUBLICATIONS</h3>
                         <ul>
                             <li class="d-flex align-items-center we">
                                 <img src="../assets/img/column3-image1.jpg" alt="#">
@@ -236,7 +271,20 @@ export default {
 </main>
 
 </template>
-<style scoped>
+<style scoped lang="scss">
+.card-container{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+    .question-card{
+        flex-basis: 30%;
+        padding: 20px;
+
+    }
+}
+i{
+    color: darkgreen;
+}
 .jambotron{
     background-image: url(../assets/img/video_law_home_preview.jpg);
     height: 30vh;
@@ -244,21 +292,21 @@ export default {
 
 #introduction{
     background-color: rgb(245, 245, 245);
-}
-
-#introduction .col{
-    background-color: white;
-    padding: 30px;
-    border-top: 3px solid #F17105;
-    border-left: 1px solid rgb(245, 245, 245);
-    border-right: 1px solid rgb(245, 245, 245);
-}
-
-#introduction button{
-    padding: 7px;
-    border: 0;
-    background-color: rgb(59, 66, 82);
-    color:white;
+    
+    .col{
+        background-color: white;
+        padding: 30px;
+        border-top: 3px solid #F17105;
+        border-left: 1px solid rgb(245, 245, 245);
+        border-right: 1px solid rgb(245, 245, 245);
+    }
+    
+    button{
+        padding: 7px;
+        border: 0;
+        background-color: rgb(59, 66, 82);
+        color:white;
+    }
 }
 
 .question{
@@ -295,11 +343,11 @@ button{
 .partnership{
     background-color: rgb(250, 250, 250);
     height: 40rem;
-}
-.partnership col{
-    background-color: white;
-    height: 20rem;
-    border-top: 2px solid #d89c6b;
+    col{
+        background-color: white;
+        height: 20rem;
+        border-top: 2px solid #d89c6b;
+    }
 }
 
 
